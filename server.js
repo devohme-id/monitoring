@@ -8,7 +8,7 @@ app.use(express.static('public'));
 app.get('/api/status', async (req, res) => {
   try {
     const processes = await psList();
-    const logProcess = processes.find(p => p.name.toLowerCase() === 'log.exe');
+    const logProcess = processes.find(p => p.name.toLowerCase() === 'msedge.exe');
     // res.json(processes);
     res.json({
       logExeRunning: !!logProcess,
@@ -18,7 +18,7 @@ app.get('/api/status', async (req, res) => {
     });
   } catch (err) {
     console.error('Error saat cek proses:', err);
-    res.status(500).json({ error: 'Gagal mendeteksi proses log.exe' });
+    res.status(500).json({ error: 'Gagal mendeteksi proses msedge.exe' });
   }
 });
 
