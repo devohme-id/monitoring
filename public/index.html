@@ -23,20 +23,20 @@
       const detailEl = document.getElementById('detail');
 
       if (data.logExeRunning) {
-        statusEl.textContent = 'Aktif ✅';
+        statusEl.textContent = 'Aktif';
         detailEl.innerHTML = `
           PID: ${data.pid} <br>
           CPU: ${data.cpu?.toFixed(2) || '-'}% <br>
           Memory: ${Math.round((data.memory || 0) / 1024 / 1024)} MB
         `;
       } else {
-        statusEl.textContent = 'Tidak Berjalan ❌';
+        statusEl.textContent = 'Tidak Berjalan';
         detailEl.textContent = '';
       }
     }
 
-    cekStatus(); // Auto cek saat load
-    setInterval(cekStatus, 10000); // Auto refresh tiap 10 detik
+    cekStatus();
+    setInterval(cekStatus, 10000);
   </script>
 </body>
 </html>
